@@ -1,5 +1,5 @@
 # Telegramm-Admin-Tool
-## Main function
+## Main function:
 ```cpp
 #include "TGBotFunc.hpp"
 

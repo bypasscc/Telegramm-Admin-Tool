@@ -2,10 +2,10 @@
 
 std::string Requests::Get_Request(const char* metod, const char* path, const char* content)
 {
-	const int buffer_size = 1024;
 	DWORD bytes_read = 0;
-
 	char data[buffer_size];
+
+	HINTERNET hRequest;
 	std::string result;
 
 	hRequest = HttpOpenRequestA(hConnection, metod, path == "" ? path = "unknown" : path,
@@ -25,7 +25,7 @@ std::string Requests::Get_Request(const char* metod, const char* path, const cha
 	while (InternetReadFile(hRequest, data, 1024, &bytes_read) && bytes_read > 0) {
 		result.append(static_cast<char*>(data), bytes_read);
 	} 
-	
+
 	InternetCloseHandle(hRequest);
 	return result;
 }

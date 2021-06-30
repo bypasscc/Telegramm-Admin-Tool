@@ -3,16 +3,17 @@
 void Telegram::Send_Message(const char* message)
 {
 	std::string content = "bot" + std::string(bot_api) + "/sendMessage?text=" + message + "&chat_id=" + chat_id;
-	nlohmann::json parse_request;
+
+	write_log << content;
 
 	try {
-		std::string get_request = Requests::Get_Request("GET", content.c_str(), nullptr);
+		std::string get_request = Requests::Send_Request("GET", content.c_str(), nullptr);
 
 		std::string request = get_request == "" ?
 			throw std::exception("Error to send get request! Check your internet connection!") :
 				get_request;
 
-		parse_request = nlohmann::json::parse(request);
+		nlohmann::json parse_request = nlohmann::json::parse(request);
 
 		if (parse_request["ok"] == false) {
 			throw std::exception("Bad request: " + parse_request["ok"]["result"]);
@@ -31,7 +32,7 @@ std::string Telegram::Get_Last_Message()
 	std::string text;
 
 	try {
-		std::string get_request = Requests::Get_Request("GET", content.c_str(), nullptr);
+		std::string get_request = Requests::Send_Request("GET", content.c_str(), nullptr);
 
 		std::string messages = get_request == "" ?
 			throw std::exception("Error to send get request! Check your internet connection!") :

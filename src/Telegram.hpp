@@ -6,6 +6,7 @@ class Telegram : Requests
     const char* bot_api;
     const char* chat_id;
     int error_counts; //понадобится когда напишу свой свобственный класс для обработки ошибок
+    Log write_log;
 public:
     Telegram() : bot_api(nullptr), chat_id(nullptr), error_counts(0)
     {   }

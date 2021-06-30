@@ -1,14 +1,14 @@
 #include "Requests.hpp"
 
-std::string Requests::Get_Request(const char* metod, const char* path, const char* content)
+std::string Requests::Send_Request(const char* metod, const char* path, const char* content)
 {
-	DWORD bytes_read = 0;
-	char data[buffer_size];
-
 	HINTERNET hRequest;
 	std::string result;
 
-	hRequest = HttpOpenRequestA(hConnection, metod, path == "" ? path = "unknown" : path,
+	DWORD bytes_read = 0;
+	char data[buffer_size];
+
+	hRequest = HttpOpenRequestA(hConnection, metod, path, 
 		NULL, NULL, 0, INTERNET_FLAG_RELOAD | INTERNET_FLAG_SECURE, 1);
 
 	if (!hRequest) {
@@ -27,5 +27,6 @@ std::string Requests::Get_Request(const char* metod, const char* path, const cha
 	} 
 
 	InternetCloseHandle(hRequest);
+
 	return result;
 }

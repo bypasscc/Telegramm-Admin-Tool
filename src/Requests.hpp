@@ -34,5 +34,5 @@ public:
 		InternetCloseHandle(hConnection);
 	}
 
-	std::string Get_Request(const char* metod, const char* path, const char* content);
+	std::string Send_Request(const char* metod, const char* path, const char* content);
 };

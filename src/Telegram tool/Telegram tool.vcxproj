@@ -141,16 +141,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Requests.cpp" />
+    <ClCompile Include="SPModule.cpp" />
     <ClCompile Include="Telegram.cpp" />
-    <ClCompile Include="TgException.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h" />
-    <ClInclude Include="Log.hpp" />
     <ClInclude Include="Requests.hpp" />
+    <ClInclude Include="SPModule.h" />
     <ClInclude Include="Telegram.hpp" />
     <ClInclude Include="TGBotFunc.hpp" />
   </ItemGroup>

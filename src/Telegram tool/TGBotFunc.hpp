@@ -3,21 +3,22 @@
 
 namespace Tg
 {
-	namespace Utils {
-		void Init(Telegram& start)
-		{
-			//HWND hWnd = GetConsoleWindow();
-
-			//if (!ShowWindow(hWnd, SW_HIDE)) {
-				//MessageBoxA(0, "Error to hide window!", MB_OK, 0);
-			//}
-
-			start.Send_Message("Your busya has been started!");
-		}
+	void Delay(double seconds)
+	{
+		Sleep(seconds * 1000);
 	}
 
-	char* Get_Sys_Process()
+	void Init(Telegram& start)
 	{
+		std::string on_start_message =
+			"The computer is on! Example commands:  /cmd  /exit  /shutdown";
 
+		HWND hWnd = GetConsoleWindow();
+
+		//if (!ShowWindow(hWnd, SW_HIDE)) {
+			//MessageBoxA(0, "Error to hide window!", MB_OK, 0);
+		//}
+
+		start.Send_Message(on_start_message.c_str());
 	}
 }

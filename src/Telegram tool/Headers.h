@@ -3,9 +3,6 @@
 #include <Windows.h>
 #include <wininet.h>
 #include <TlHelp32.h>
-#include <fstream> //for log.hpp
-#include <ctime> // for log.hpp
-#include "Log.hpp"
 #include "nlohmann/json.hpp"
 
 #pragma comment(lib, "WinInet.lib")

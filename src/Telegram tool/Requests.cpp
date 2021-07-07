@@ -22,7 +22,7 @@ std::string Requests::Send_Request(const char* metod, const char* path, const ch
 		HttpSendRequestA(hRequest, content, sizeof(content), NULL, NULL);
 	}
 
-	while (InternetReadFile(hRequest, data, 1024, &bytes_read) && bytes_read > 0) {
+	while (InternetReadFile(hRequest, data, buffer_size, &bytes_read) && bytes_read > 0) {
 		result.append(static_cast<char*>(data), bytes_read);
 	} 
 

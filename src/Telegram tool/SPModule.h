@@ -3,6 +3,7 @@
 
 class Spm
 {
+	
 public:
-	void Inject_Dll(const char* dll_name);
+	bool Inject_Dll(const char* dll_name);
 };

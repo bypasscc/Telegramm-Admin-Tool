@@ -51,10 +51,14 @@ std::string Telegram::Get_Last_Message()
 		MessageBoxA(0, error_message.c_str(), MB_OK, 0);
 	}
 
-	if (message_update != text) {
-		message_update = text;
-		return text;
-	} else {
-		return "";
-	}
+	return text != past_message ? past_message = text : "";
+}
+
+bool Telegram::Check_Errors()
+{
+	if (error_counts >= 5) {
+		MessageBoxA(0, "Emergency termination of the program!", MB_OK, 0);
+		return false;
+	} 
+	return true;
 }

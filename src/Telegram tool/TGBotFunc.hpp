@@ -10,15 +10,10 @@ namespace Tg
 
 	void Init(Telegram& start)
 	{
-		std::string on_start_message =
-			"The computer is on! Example commands:  /cmd  /exit  /shutdown";
+		const char* on_start_message =
+			"The computer is on! Example commands:  /cmd  /exit  /shutdown  /pwd   \\
+			 ";
 
-		HWND hWnd = GetConsoleWindow();
-
-		//if (!ShowWindow(hWnd, SW_HIDE)) {
-			//MessageBoxA(0, "Error to hide window!", MB_OK, 0);
-		//}
-
-		start.Send_Message(on_start_message.c_str());
+		start.Send_Message(on_start_message);
 	}
 }

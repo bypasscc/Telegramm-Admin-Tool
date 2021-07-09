@@ -7,7 +7,7 @@ class Requests
 	HINTERNET hConnection;
 public:
 	Requests(): hSocket(nullptr), hConnection(nullptr)
-	{}
+	{   }
 
 	Requests(const char* useragent, const char* url, bool secure)
 	{

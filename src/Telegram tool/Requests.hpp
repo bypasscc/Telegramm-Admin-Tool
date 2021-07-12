@@ -3,13 +3,15 @@
 
 class Requests
 {
+protected:
 	HINTERNET hSocket;
 	HINTERNET hConnection;
+	bool SSL;
 public:
-	Requests(): hSocket(nullptr), hConnection(nullptr)
-	{   }
+	Requests(): hSocket(nullptr), hConnection(nullptr), SSL(0)
+	{	}
 
-	Requests(const char* useragent, const char* url, bool secure)
+	Requests(const char* useragent, const char* url, bool https) : SSL(https)
 	{
 		hSocket = InternetOpenA(useragent, INTERNET_OPEN_TYPE_PRECONFIG, 0, 0, 0);
 
@@ -18,7 +20,7 @@ public:
 			exit(1);
 		}
 
-		hConnection = InternetConnectA(hSocket, url, secure == true ? INTERNET_DEFAULT_HTTPS_PORT 
+		hConnection = InternetConnectA(hSocket, url, SSL == true ? INTERNET_DEFAULT_HTTPS_PORT 
 			: INTERNET_DEFAULT_HTTP_PORT, 0, 0, INTERNET_SERVICE_HTTP, 0, 0);
 
 		if (!hConnection) {

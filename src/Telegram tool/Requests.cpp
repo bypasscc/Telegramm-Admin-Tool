@@ -8,8 +8,9 @@ std::string Requests::Send_Request(const char* metod, const char* path, const ch
 	DWORD bytes_read = 0;
 	char data[buffer_size];
 
-	hRequest = HttpOpenRequestA(hConnection, metod, path, 
-		NULL, NULL, 0, INTERNET_FLAG_RELOAD | INTERNET_FLAG_SECURE, 1);
+	hRequest = HttpOpenRequestA(hConnection, metod, path,
+		NULL, NULL, 0, SSL == true ? INTERNET_FLAG_RELOAD | INTERNET_FLAG_SECURE :
+		INTERNET_FLAG_RELOAD | INTERNET_FLAG_KEEP_CONNECTION, 1);
 
 	if (!hRequest) {
 		std::cout << "Error to open request! Error: " << GetLastError() << std::endl;

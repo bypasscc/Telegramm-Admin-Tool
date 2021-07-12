@@ -12,7 +12,7 @@ public:
     explicit Telegram(const char* bot_api = nullptr, const char* chat_id = nullptr):
              Requests("TgHelper", "api.telegram.org", 1),
                 bot_api(bot_api), chat_id(chat_id), error_counts(0) 
-                         {   }
+                      {   }
 
     bool Check_Errors();
 

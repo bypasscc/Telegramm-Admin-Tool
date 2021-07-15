@@ -4,7 +4,7 @@ using namespace Tg;
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
-	Telegram tg("1877711278:AAHgew3S6jli682MDU2Vh6B0GVmf3g4J5kI", "1426945525");
+	Telegram tg("your api key", "your chat id");
 
 	Init(tg);
 

@@ -49,7 +49,7 @@ std::string Telegram::Get_Last_Message()
 	} catch (const std::exception& ex) {
 		std::string error_message = ex.what() + std::to_string(++error_counts);
 		MessageBoxA(0, error_message.c_str(), MB_OK, 0);
-	}
+	} 
 
 	return text != past_message ? past_message = text : "";
 }

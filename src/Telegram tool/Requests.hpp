@@ -11,7 +11,7 @@ public:
 	Requests(): hSocket(nullptr), hConnection(nullptr), SSL(0)
 	{	}
 
-	Requests(const char* useragent, const char* url, bool https) : SSL(https)
+	Requests(const char* useragent, const char* url, bool https = 0) : SSL(https)
 	{
 		hSocket = InternetOpenA(useragent, INTERNET_OPEN_TYPE_PRECONFIG, 0, 0, 0);
 

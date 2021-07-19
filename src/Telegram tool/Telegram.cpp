@@ -56,9 +56,9 @@ std::string Telegram::Get_Last_Message()
 
 bool Telegram::Check_Errors()
 {
-	if (error_counts >= 5) {
+	if (error_counts >= 5 && Requests::Send_Request("GET", "test", nullptr) == "") {
 		MessageBoxA(0, "Emergency termination of the program!", MB_OK, 0);
 		return false;
-	} 
+	}
 	return true;
 }
